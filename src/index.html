@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="./output.css">
 </head>
 <body>
-    <section id="carousal" class="px-10 py-5">
-        <div class="grid grid-flow-col auto-cols-[calc((100%/4)-12px)] gap-3 overflow-hidden">
-            <div class="flex flex-col items-center">
+    <section class="w-[90%] m-auto py-5 relative scroll-smooth">
+        <svg xmlns="http://www.w3.org/2000/svg" id="left" class="w-[50px] h-[50px] bg-orange-500 text-center rounded-full absolute left-[-22px]" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+        <div id="carousal" class="grid grid-flow-col auto-cols-[calc((100%/4)-12px)] gap-3 overflow-hidden scroll-smooth">
+            <div class="card flex flex-col items-center">
                 <img src="./pic1.png" alt="" class="object-cover">
                 <h3 class="text-lg">Black wood plant</h3>
                 <div class="flex items-center gap-3">
@@ -58,6 +59,22 @@
                 </div>
             </div>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" id="right" class="w-[50px] h-[50px] bg-orange-500 text-center rounded-full absolute right-[-22px]" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1)"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
     </section>
+    <script>
+        const l = document.querySelector("#left")
+        const r = document.querySelector("#right")
+        let car = document.querySelector("#carousal")
+        let cw = document.querySelector(".card").offsetWidth
+        l.addEventListener('click',(e)=>{
+            console.log(car);
+            car.scrollLeft += -cw
+            console.log("lalal",cw);
+        })
+        r.addEventListener('click',(e)=>{
+            car.scrollLeft += cw
+            console.log("lalal",cw);
+        })
+    </script>
 </body>
 </html>
